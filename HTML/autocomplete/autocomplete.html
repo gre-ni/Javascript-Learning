@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>autocomplete</title>
+    </head>
+    <body>
+        <form> 
+            <input autocomplete="off" autofocus placeholder="query" type="text">
+        </form>
+        <ul></ul>
+
+        <script src="large.js"></script>
+        <script>
+            let input = document.querySelector('input');
+            input.addEventListener('keyup', function(event) {
+                let html = '';
+                if (input.value) {
+                    for (word of WORDS) { // Iterating over variable from large.js file
+                        if (word.startsWith(input.value)) {
+                            html += `<li>${word}</li>`;
+                        }
+                    }
+                }
+                document.querySelector('ul').innerHTML = html;
+            });
+        </script>
+    </body>
+</html>
