@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+            function greet()
+            {
+                let name = document.querySelector('#name').value
+                alert(`hello ${name}`)
+            }
+        </script>
+        <title>hello</title>
+    </head>
+    <body>
+        <!-- Need to return false here so that the browser isn't still trying to submit the form
+         to the server after function gets called-->
+        <form onsubmit="greet(); return false;"> 
+            <input autocomplete="off" autofocus id="name" placeholder="name" type="text">
+            <input type="submit">
+        </form>
+    </body>
+</html>
