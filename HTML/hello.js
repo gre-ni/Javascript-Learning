@@ -1,9 +1,14 @@
 document.addEventListener('DOMContentLoaded', function(event) {
-    document.querySelector('form').addEventListener('submit', 
-    function(event) {
-        alert('hello, ' + document.querySelector('#name').value);
-        // Stops default action of event happening, here no form submission
-        event.preventDefault();
-    }    
-    );
+    let input = document.querySelector('input');
+    input.addEventListener('keyup', function(event) {
+        // Storing reference to p in a variable, so that I don't have to query repeatedly
+        let name = document.querySelector('p');
+        if(input.value) {
+            // innerHTML represents content of the element
+            name.innerHTML = `hello, ${input.value}`;
+        }
+        else {
+            name.innerHTML = `hello, whoever you are`;
+        }
+    });
 });
